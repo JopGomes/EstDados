@@ -1,0 +1,19 @@
+## Arvore
+### Definição basica
+- Uma árvore enraidada T é um conjunto finito de elementos denominados nós ou vertices tais que:
+	- T = \oplus ( simbolo do vazio ) é a árvore dita vazia, ou
+	- Existe um nó especial r , chamado raiz de T; Os restantes constituem um único conjunto vazio ou são  divididos em m>= 1 conjuntos disjuntos não vazios, as subarvores de r, ou simplesmentes subárvores, cada qual por sua vez uma árvore.
+- Uma floresta é um conjunto de árvores.
+- Se v é um nó de T, a notação T_v indica a subárvore de T com raiz v.
+- Também pode ser definida como um grafo sem ciclo
+- Uma arvore com n nos tem n-1 arestas
+- Seja v o nó raiz da subarvore T_v de T. Os nós w1,w2,...,wj raízes das subárvores de T_v são denominados filhos de v.
+- O nó v é denominado pai de w1,w2,...,wj
+- O número de filhos de um nó é chamado grau de saída do nó
+- Se x pertence a subárvore T_v , x é descendente de v, e v ancestral de x
+- Se x != v , x é descendente próprio de v, e v é ancestral próprio de x
+- Um nó que não possui descendentes próprios é chamado folha
+- Um nó não folha é dito nó interior
+- Uma sequência de nós distintos v1,v2,...,vk, tal que existe sempre entre nós consecutivos a relação "é filhos de" ou "é pai de", é denominada um caminho da árvore. Diz-se que v1 alcança k e vice-versa
+- Um caminho com k vertices é obtipo pela sequência de k-1 pares
+- k-1 é comprimento do caminho
