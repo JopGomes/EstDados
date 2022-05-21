@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -16,7 +17,7 @@ struct no
 
 
 int freq[130];
-vector<no> arvores;
+vector<no*> arvores;
 
 
 void getFreq()
@@ -29,9 +30,9 @@ void getFreq()
     }
 }
 
-bool sortAux(no a, no b)
+bool sortAux(no *a, no *b)
 {
-    if (a.freq < b.freq)
+    if (a->freq < b->freq)
         return true;
     else
         return false;
@@ -39,29 +40,30 @@ bool sortAux(no a, no b)
 void setTree()
 {
 
-    for (int i = 0; 130 > i; i++)
+    for (int i = 0; 129 > i; i++)
     {
         if (freq[i])
         {
-            struct no aux;
+            struct no* aux;
             int j = i+48;
             char ch = j;
-            aux.ch = ch;
-            aux.freq = freq[i];
+            aux->ch = ch;
+            aux->freq = freq[i];
+            aux->lf=NULL;
+            aux->rt=NULL;
             arvores.push_back(aux);
         }
     }
     sort(arvores.begin(), arvores.end(), sortAux);
-    cout << arvores[0].ch;
 }
 
 
 void algHuffman(){
     if(arvores.size()==1) return;
-    struct no aux;
-    aux.freq=arvores[0].freq+arvores[1].freq;
-    aux.lf=arvores[0];
-    aux.rt=arvores[1];
+    struct no* aux;
+    aux->freq=arvores[0]->freq+arvores[1]->freq;
+    aux->lf=arvores[0];
+    aux->rt=arvores[1];
     arvores.erase(arvores.begin()+1);
     arvores.push_back(aux);
     sort(arvores.begin(), arvores.end(), sortAux);
