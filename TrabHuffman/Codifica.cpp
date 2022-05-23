@@ -98,13 +98,10 @@ void preOrd(no* aux)
 void symOrd(no* aux)
 {  
     if(aux->lf)symOrd(aux->lf);
-    if(aux->rt)symOrd(aux->rt);
     fs<< aux ->ch;
+    if(aux->rt)symOrd(aux->rt);
     
 }
-
-
-
 void setText()
 {
     char ch;
