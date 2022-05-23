@@ -27,7 +27,7 @@ void getFreq()
     }
 }
 
-bool sortAux(no *a, no *b) // funcao para alterar o tipo de sort.
+bool sortAux(no *a, no *b) // Sort the vector of tree with the frequencia f1 < f2
 {
     if (a->freq < b->freq)
         return true;
@@ -95,7 +95,7 @@ void preOrd(no* aux)
     if(aux->rt)preOrd(aux->rt);
     fs<< aux ->ch;
 }
-void symOrd(no* aux)
+void symOrd(no* aux) 
 {  
     if(aux->lf)symOrd(aux->lf);
     fs<< aux ->ch;
@@ -108,9 +108,9 @@ void setText()
     ifstream fin("teste.txt");
 
     // Put the preOrder and the symOrd in the output;
-    preOrd(arvores[0]);
+    preOrd(arvores[0]);// Output the pre order
     fs << "\n";
-    symOrd(arvores[0]);
+    symOrd(arvores[0]);//Output the symetric order 
     fs << "\n";
 
     while (fin.get(ch))
@@ -124,8 +124,8 @@ void setText()
 int main()
 {
     fs.open("output.txt", fstream::out | fstream::app);
-    getFreq();
-    setTree();
-    algHuffman();
-    setText();
+    getFreq(); // Read the input and take the frequence of all characters
+    setTree(); // Create all one-nó-tree from the frequence
+    algHuffman(); // Algoritmo de Huffman
+    setText(); // Creat a text with the OutPut
 }
