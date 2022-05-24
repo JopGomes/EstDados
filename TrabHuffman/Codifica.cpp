@@ -116,7 +116,7 @@ void setText()
     while (fin.get(ch))
     {
         string ans = WalkTree(arvores[0], "", ch);
-        fs << ans << " ";
+        fs << ans;
     }
     fs.close();
 }
