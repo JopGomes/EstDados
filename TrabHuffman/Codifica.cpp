@@ -91,9 +91,9 @@ string WalkTree(no *aux, string ans, char target)
 
 void preOrd(no* aux)
 {  
+    fs<< aux ->ch;
     if(aux->lf)preOrd(aux->lf);
     if(aux->rt)preOrd(aux->rt);
-    fs<< aux ->ch;
 }
 void symOrd(no* aux) 
 {  
