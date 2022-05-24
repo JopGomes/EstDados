@@ -13,7 +13,7 @@ struct no
     struct no *rt;
 };
 
-int nfreq[130];
+int nfreq[256];
 vector<no *> arvores;
 fstream fs;
 
@@ -23,7 +23,7 @@ void getFreq()
     ifstream fin("teste.txt");
     while (fin.get(ch))
     {
-        nfreq[ch - '\0']++;
+        nfreq[ch]++;
     }
 }
 
