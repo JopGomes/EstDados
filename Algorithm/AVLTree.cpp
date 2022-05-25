@@ -39,9 +39,12 @@ void rightRotation(struct no **u)
 }
 
 void leftRotation(struct no** u){
-    struct no* v= (*u)->rt;
-    struct no *w =v->lf;
-    if(w->)
+    struct no* k= (*u)->rt;
+    struct no *m =k->lf;
+    if()//Simple Rotation
+    {
+
+    }
 }
 
 int main()
