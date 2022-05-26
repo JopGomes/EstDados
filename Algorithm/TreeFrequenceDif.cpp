@@ -92,8 +92,8 @@ void printTree(const string& prefix, const no* root, bool isLeft){
 
 int main(){
     int size=6;
-    int f[]={0,1,1,2,3,2};
-    int f_[]={2,2,1,1,1,2};
+    int f[]={0,1,4,3,1,2};
+    int f_[]={2,2,1,1,1,3};
     int keys[]={0,1,2,3,4,5};
 
     int **F=matriz(size);
