@@ -101,8 +101,11 @@ int main(){
     int **K=matriz(size);
 
     getCost(f,f_,C,F,K,size);
+    cout<< "F\n";
     printMatriz(F,size,3);//printing the matriz
+    cout<< "C\n";
     printMatriz(C,size,3);
+    cout<< "K\n";
     printMatriz(K,size,3);
     cout <<"\n";
 
