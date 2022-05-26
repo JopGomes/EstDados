@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void getSumFreq(int *f,int *f_, int **F,int size){
@@ -33,6 +34,21 @@ void getCost(int *f,int *f_, int **C,int ** F,int**K,int size){
     }
 }
 
+struct no{
+    int key;
+    no* lf;
+    no* rt;
+};
+
+void setTree(int **K, int i,int j, int* keys,no* root){
+    int k= K[i][j];
+    root->key=keys[k];
+    if(k==0 || i>j || i>k-1 || k>j)return;
+    root ->lf = new no;
+    root ->rt = new no;
+    setTree(K,i,k-1,keys,root->lf);
+    setTree(K,k,j,keys,root->rt);
+}
 
 
 int** matriz(int size){
@@ -58,15 +74,39 @@ void printMatriz(int **M,int size, int casa_dec){
     cout <<"\n";
 }
 
+void printTree(const string& prefix, const no* root, bool isLeft){
+     if( root != nullptr && root->key !=0 )
+    {
+        cout << prefix;
+        cout << (isLeft ? "├── " : "└── " );
+        cout << root->key << endl;
+        printTree( prefix + (isLeft ? "│   " : "    "), root->lf, true);
+        printTree( prefix + (isLeft ? "│   " : "    "), root->rt, false);
+    }
+    else{
+        cout << prefix;
+        cout << (isLeft ? "├── " : "└── " );
+        cout << "*" << endl;
+    }
+}
+
 int main(){
     int size=6;
-    int f[]={0,2,10,3,5,9};
-    int f_[]={3,1,1,1,1,2};
+    int f[]={0,1,1,2,3,2};
+    int f_[]={2,2,1,1,1,2};
+    int keys[]={0,1,2,3,4,5};
+
     int **F=matriz(size);
     int **C=matriz(size);
     int **K=matriz(size);
+
     getCost(f,f_,C,F,K,size);
-    printMatriz(F,size,3);
+    printMatriz(F,size,3);//printing the matriz
     printMatriz(C,size,3);
     printMatriz(K,size,3);
+    cout <<"\n";
+
+    struct no* root=new no;
+    setTree(K,0,size-1,keys,root);
+    printTree("", root,false);//printing the tree
 }
