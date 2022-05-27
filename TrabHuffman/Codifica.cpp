@@ -16,6 +16,8 @@ struct no
 int nfreq[256];
 vector<no *> arvores;
 fstream fs;
+int charNo=128;
+
 
 void getFreq()
 {
@@ -61,7 +63,7 @@ void algHuffman()
         return;
     struct no *aux = new no;
     aux->freq = arvores[0]->freq + arvores[1]->freq;
-    aux->ch = '+';
+    aux->ch =  '+';//(char) charNo
     aux->lf = arvores[0];
     aux->rt = arvores[1];
     arvores.erase(arvores.begin(), arvores.begin() + 2);
