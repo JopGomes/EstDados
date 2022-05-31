@@ -63,7 +63,9 @@ void algHuffman()
         return;
     struct no *aux = new no;
     aux->freq = arvores[0]->freq + arvores[1]->freq;
-    aux->ch =  '+';//(char) charNo
+    char aux3=  charNo;
+    aux->ch =  aux3;//(char) charNo
+    charNo++;
     aux->lf = arvores[0];
     aux->rt = arvores[1];
     arvores.erase(arvores.begin(), arvores.begin() + 2);
@@ -75,7 +77,7 @@ void algHuffman()
 string WalkTree(no *aux, string ans, char target)
 {
     string auxAnsRt, auxAnsLf;
-    if (aux->ch != '+')
+    if ((aux->ch - '\0') <129 && (aux->ch-'\0')>0)
     {
         if (aux->ch == target)
             return ans;
