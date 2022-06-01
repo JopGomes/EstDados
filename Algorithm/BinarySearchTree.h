@@ -3,6 +3,12 @@
 // f=1 x in S
 #ifndef Search
 #define Search
+struct no
+{
+    int key;
+    struct no *lf;
+    struct no *rt;
+};
 class Arvore
 {
     no *pt;
