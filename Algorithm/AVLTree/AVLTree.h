@@ -1,5 +1,6 @@
 #ifndef AVLTree
 #define AVLTree
+#define no
 #include <stdio.h>
 #include <iostream>
 #include <string>

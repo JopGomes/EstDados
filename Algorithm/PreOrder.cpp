@@ -1,5 +1,3 @@
-
-
 void preOrd(no* aux)
 {  
     fs<< aux ->ch;//see
