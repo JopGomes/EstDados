@@ -2,7 +2,6 @@
 #include <cmath>
 #include <fstream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -24,6 +23,8 @@ public:
 
 void decode(Node *n, ifstream &ifs) {
 
+  ofstream ofs("decoded.txt",ios::out);
+
   Node *aux = n ;
   char c;
 
@@ -34,6 +35,7 @@ void decode(Node *n, ifstream &ifs) {
       aux = aux->pLeft;
       if(aux->pLeft == NULL && aux->pRight == NULL) {
         cout << aux->value;
+        ofs << aux->value;
         aux = n;
       }
     }
@@ -41,10 +43,13 @@ void decode(Node *n, ifstream &ifs) {
       aux = aux->pRight;
       if(aux->pLeft == NULL && aux->pRight == NULL) {
         cout << aux->value;
+        ofs << aux->value;
         aux =n;
       }
     }
   } while(true);
+
+  ofs.close();
 }
 
 
