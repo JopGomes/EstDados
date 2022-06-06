@@ -15,6 +15,7 @@
         "numbers": "cpp",
         "algorithm": "cpp",
         "new": "cpp",
+        "iosfwd": "cpp",
         "array": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
