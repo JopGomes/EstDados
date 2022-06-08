@@ -158,6 +158,20 @@ public:
             }
         }
     }
+    no* busca(int valor, no* no){
+        if(valor==no->key){return no;}
+        else if(valor<no->key){
+            if(no->lf)return busca(valor,no->lf);
+            else return no;//retorna o pai
+            }
+        else {
+            if(no->rt)return busca(valor,no->rt);
+            else return no;// retorna o pai
+        }
+    }
+    void remove(int valor){
+        
+    }
     void printBalance(struct no *r)
     {
         if (r != NULL)
